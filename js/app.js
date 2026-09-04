@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       counts[p.category] = (counts[p.category] || 0) + 1;
     });
 
-    const categories = [
+    const categories = window.SMAK_CATEGORIES || [
       { id: 'all', name: 'Todos los Productos', icon: 'grid' },
       { id: 'Sillas y Bancos', name: 'Sillas y Bancos', icon: 'chair' },
       { id: 'Muebles y Organización', name: 'Muebles y Organización', icon: 'box' },
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }).join('');
 
-    // Attach click events
+    // Attach click events to pills
     categoryContainer.querySelectorAll('.category-pill').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const cat = btn.getAttribute('data-category');
@@ -102,6 +102,63 @@ document.addEventListener('DOMContentLoaded', () => {
         renderFilteredProducts();
       });
     });
+
+    // Render Showcase Grid ("COMPRA POR CATEGORÍAS")
+    const showcaseGrid = document.getElementById('categoriesShowcaseGrid');
+    if (showcaseGrid) {
+      const showcaseCategories = categories.filter(c => c.id !== 'all');
+      showcaseGrid.innerHTML = showcaseCategories.map(cat => {
+        const count = counts[cat.id] || 0;
+        return `
+          <div class="category-showcase-card" data-category="${cat.id}" role="button" tabindex="0" title="Explorar ${cat.displayName || cat.name}">
+            <div class="category-card-media">
+              <img src="${cat.image}" alt="${cat.displayName || cat.name}" loading="lazy">
+            </div>
+            <div class="category-card-info">
+              <div class="category-card-texts">
+                <h3 class="category-card-name">${cat.displayName || cat.name}</h3>
+                <span class="category-card-subtitle">${cat.subtitle || 'Ver colección'} &bull; ${count} modelos</span>
+              </div>
+              <div class="category-card-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      // Attach click events to category showcase cards
+      showcaseGrid.querySelectorAll('.category-showcase-card').forEach(card => {
+        const handleCategorySelect = () => {
+          const catId = card.getAttribute('data-category');
+          currentCategory = catId;
+
+          // Update active pill
+          if (categoryContainer) {
+            categoryContainer.querySelectorAll('.category-pill').forEach(b => {
+              b.classList.toggle('active', b.getAttribute('data-category') === catId);
+            });
+          }
+
+          // Render filtered products
+          renderFilteredProducts();
+
+          // Smooth scroll to catalog
+          const catalogSec = document.getElementById('catalogo');
+          if (catalogSec) {
+            catalogSec.scrollIntoView({ behavior: 'smooth' });
+          }
+        };
+
+        card.addEventListener('click', handleCategorySelect);
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            handleCategorySelect();
+          }
+        });
+      });
+    }
   }
 
   /**

@@ -32,11 +32,41 @@ const SMAK_CONFIG = {
 
 const SMAK_CATEGORIES = [
   { id: "all", name: "Todos los Productos", icon: "grid" },
-  { id: "Sillas y Bancos", name: "Sillas y Bancos", icon: "chair" },
-  { id: "Muebles y Organización", name: "Muebles y Organización", icon: "box" },
-  { id: "Cocina y Baño", name: "Cocina y Baño", icon: "droplet" },
-  { id: "Escaleras", name: "Escaleras", icon: "layers" },
-  { id: "Salud y Cuidado", name: "Salud y Cuidado", icon: "heart" }
+  { 
+    id: "Sillas y Bancos", 
+    name: "Sillas y Bancos", 
+    displayName: "SILLAS",
+    subtitle: "Línea Tolix, Ejecutivas y Bancos",
+    image: "https://static.wixstatic.com/media/f6ccd1_585455612c3744408a737c745f312c3c~mv2.jpeg/v1/fit/w_500,h_500,q_90/file.jpg"
+  },
+  { 
+    id: "Muebles y Organización", 
+    name: "Muebles y Organización", 
+    displayName: "MUEBLES",
+    subtitle: "Mesas Mármol, Escritorios y Percheros",
+    image: "https://static.wixstatic.com/media/f6ccd1_2c34eb84c77e430dbc3e36343249ddcd~mv2.webp/v1/fit/w_500,h_500,q_90/file.webp"
+  },
+  { 
+    id: "Cocina y Baño", 
+    name: "Cocina y Baño", 
+    displayName: "COCINA Y BAÑO",
+    subtitle: "Columnas de Ducha en Acero Inoxidable",
+    image: "https://static.wixstatic.com/media/f6ccd1_cede824b013d41a0bfcbd7b870bf6211~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
+  },
+  { 
+    id: "Escaleras", 
+    name: "Escaleras", 
+    displayName: "ESCALERAS",
+    subtitle: "Aluminio Multipropósito de Alta Resistencia",
+    image: "https://static.wixstatic.com/media/f6ccd1_298a5327119e41eca093ab5b636ff305~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
+  },
+  { 
+    id: "Salud y Cuidado", 
+    name: "Salud y Cuidado", 
+    displayName: "SALUD Y MOVILIDAD",
+    subtitle: "Sillas de Ruedas Plegables y Confort",
+    image: "https://static.wixstatic.com/media/f6ccd1_25b1c5d058b548d0aa0a256ded90d9b9~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
+  }
 ];
 
 const SMAK_PRODUCTS = [
@@ -218,7 +248,7 @@ const SMAK_PRODUCTS = [
   {
     "id": "86529642-55a2-4175-a030-8576c81e7c38",
     "name": "Carrito Organizador de Metal Smak - 3 Niveles con Ruedas",
-    "category": "Salud y Cuidado",
+    "category": "Muebles y Organización",
     "badge": "",
     "inStock": true,
     "image": "https://static.wixstatic.com/media/f6ccd1_f34e9dcc099b420b9d8bc176c70f06c6~mv2.webp/v1/fit/w_500,h_500,q_90/file.webp",
@@ -229,12 +259,12 @@ const SMAK_PRODUCTS = [
       "https://static.wixstatic.com/media/f6ccd1_77688f03eca149899fff6b4b63e81111~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
       "https://static.wixstatic.com/media/f6ccd1_87e4e0bee90c4f65820255c7ea5d7429~mv2.png/v1/fit/w_500,h_500,q_90/file.png"
     ],
-    "description": "Silla de ruedas plegable de alta resistencia SMAK, diseñada para proporcionar máxima comodidad, movilidad asistida y transporte seguro para usuarios y familiares.",
+    "description": "Carrito organizador rodante de 3 niveles en metal reforzado con ruedas giratorias de 360º y frenos de seguridad. Ideal para cocina, baño, oficina, estética o talleres.",
     "features": [
-      "Chasis de acero esmaltado con plegado ultracompacto para cajuela",
-      "Tapicería acolchada impermeable de fácil higienización",
-      "Frenos de seguridad bilaterales de accionamiento intuitivo",
-      "Reposapiés y apoyabrazos diseñados para máximo confort"
+      "Bandejas de metal ventiladas con gran capacidad de carga",
+      "Ruedas giratorias 360º con sistema de freno",
+      "Pintura electrostática resistente al óxido y rayaduras",
+      "Estructura compacta de fácil ensamble y limpieza"
     ]
   },
   {
@@ -261,7 +291,7 @@ const SMAK_PRODUCTS = [
   {
     "id": "fc7b73e4-74fa-4491-a4a0-e9f52eb4ff3a",
     "name": "Silla de Ruedas Plegable Smak - Estructura Resistente y Confort",
-    "category": "Sillas y Bancos",
+    "category": "Salud y Cuidado",
     "badge": "",
     "inStock": true,
     "image": "https://static.wixstatic.com/media/f6ccd1_25b1c5d058b548d0aa0a256ded90d9b9~mv2.png/v1/fit/w_500,h_500,q_90/file.png",
